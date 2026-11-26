@@ -5,7 +5,7 @@
 ![Gradio](https://img.shields.io/badge/UI-Gradio-orange)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-TradeMate 是一个全栈、端到端的加密货币高频量化交易系统。摒弃了传统的“死板指标”，创新性地采用了 **“LightGBM 多因子预测 + QLoRA 微调 1.5B 情绪大模型 + AI 首席交易员一票否决权”** 的多智能体（Multi-Agent）架构，并配备极速 Web 监控大屏。
+TradeMate 是一个基于币安交易所，**针对1h为单位BTCUSDT合约的**，全栈、端到端的加密货币高频量化交易系统。摒弃了传统的“死板指标”，创新性地采用了 **“LightGBM 多因子预测 + QLoRA 微调 1.5B 情绪大模型 + AI 首席交易员一票否决权”** 的多智能体（Multi-Agent）架构，并配备极速 Web 监控大屏。
 
 > ⚠️ **高风险警告**：本项目仅供 AI 工程、大模型微调与量化交易学习交流使用，不构成任何投资建议。实盘有风险，请务必在**币安 Demo 模拟盘**下运行测试，切勿直接投入实盘资金！
 
