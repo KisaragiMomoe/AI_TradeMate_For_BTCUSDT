@@ -58,13 +58,21 @@ pip install -r requirements.txt
 *(💡 提示：若使用 NVIDIA 显卡，建议先前往 [PyTorch 官网](https://pytorch.org/get-started/locally/) 安装对应 CUDA 版本的 Torch，再执行上述依赖安装)*
 
 ### 2. 部署本地大模型 (Ollama)
-本项目使用极速的 1.5B 模型作为 AI 盘手。
+
+本项目使用极速的 1.5B 模型作为 AI 盘手。如果你不想自己训练，可以直接下载我们合并好的模型；如果你想复现训练过程，请进入 `llm_finetune/` 文件夹：
+
+**方法 A（直接部署模型）**
 1. 安装并启动 [Ollama](https://ollama.com/)。
-2. 我们已提供微调后的 GGUF 模型（或者进入 `week2_finance_lora` 自行微调）。
-3. 在模型目录下创建并注册：
-   ```bash
-   ollama create finance-expert -f Modelfile
-   ```
+2. 进入 `llm_finetune/` 文件夹，执行模型注册：
+   `ollama create finance-expert -f Modelfile`
+
+**方法 B（从零微调，硬核玩家）**
+1. 确保本地已安装 Ollama 并拉取了 `qwen2.5:14b` 和 `qwen2.5:1.5b`。
+2. 进入 `llm_finetune/` 文件夹。
+3. 运行 `python generate_data_with_14b.py`（调用 14B 模型合成 500 条均衡金融数据）。
+4. 运行 `python train_finance_lora.py`（基于 Qwen2.5-1.5B 进行 QLoRA 微调）。
+5. 运行 `python merge_finance_model.py` 合并权重。
+6. 最后执行 `ollama create finance-expert -f Modelfile` 注册模型。
 
 ### 3. 配置环境变量
 在根目录新建 `.env` 文件（**切勿泄露此文件**），填入你的币安 [Demo 模拟盘](https://demo.binance.com/) API：
